@@ -1,0 +1,381 @@
+{
+  "exportInfo": {
+    "exportDate": "2025-07-26T20:58:05.752Z",
+    "totalTests": 4,
+    "exportedBy": "CBGS Quality Control System"
+  },
+  "testResults": [
+    {
+      "id": "poids_apparence_report_1737739500000",
+      "testName": "Contrôle Poids & Apparence",
+      "testType": "poids-apparence",
+      "ligne": "LV1",
+      "produit": "Coca Simple",
+      "taille": "33cl",
+      "date": "2025-01-22",
+      "heure": "11:00",
+      "status": "completed",
+      "createdAt": "2025-01-22T11:00:00.000Z",
+      "originalData": {
+        "id": "poids_apparence_report_1737739500000",
+        "ligne": "LV1",
+        "produit": "Coca Simple",
+        "taille": "33cl",
+        "date": "2025-01-22",
+        "heure": "11:00",
+        "moldData": [
+          {
+            "moldNumber": 1,
+            "base": "15.20",
+            "corps": "22.80",
+            "etiquette": "2.10",
+            "epaule": "8.50",
+            "weight": "Conforme"
+          },
+          {
+            "moldNumber": 2,
+            "base": "15.30",
+            "corps": "22.85",
+            "etiquette": "2.11",
+            "epaule": "8.52",
+            "weight": "OK"
+          },
+          {
+            "moldNumber": 3,
+            "base": "15.40",
+            "corps": "22.90",
+            "etiquette": "2.12",
+            "epaule": "8.54",
+            "weight": "Conforme"
+          },
+          {
+            "moldNumber": 4,
+            "base": "15.50",
+            "corps": "22.95",
+            "etiquette": "2.13",
+            "epaule": "8.56",
+            "weight": "OK"
+          },
+          {
+            "moldNumber": 5,
+            "base": "15.60",
+            "corps": "23.00",
+            "etiquette": "2.14",
+            "epaule": "8.58",
+            "weight": "Conforme"
+          },
+          {
+            "moldNumber": 6,
+            "base": "15.70",
+            "corps": "23.05",
+            "etiquette": "2.15",
+            "epaule": "8.60",
+            "weight": "OK"
+          },
+          {
+            "moldNumber": 7,
+            "base": "15.80",
+            "corps": "23.10",
+            "etiquette": "2.16",
+            "epaule": "8.62",
+            "weight": "Conforme"
+          },
+          {
+            "moldNumber": 8,
+            "base": "15.90",
+            "corps": "23.15",
+            "etiquette": "2.17",
+            "epaule": "8.64",
+            "weight": "OK"
+          },
+          {
+            "moldNumber": 9,
+            "base": "16.00",
+            "corps": "23.20",
+            "etiquette": "2.18",
+            "epaule": "8.66",
+            "weight": "Conforme"
+          },
+          {
+            "moldNumber": 10,
+            "base": "16.10",
+            "corps": "23.25",
+            "etiquette": "2.19",
+            "epaule": "8.68",
+            "weight": "OK"
+          },
+          {
+            "moldNumber": 11,
+            "base": "16.20",
+            "corps": "23.30",
+            "etiquette": "2.20",
+            "epaule": "8.70",
+            "weight": "Conforme"
+          },
+          {
+            "moldNumber": 12,
+            "base": "16.30",
+            "corps": "23.35",
+            "etiquette": "2.21",
+            "epaule": "8.72",
+            "weight": "OK"
+          },
+          {
+            "moldNumber": 13,
+            "base": "16.40",
+            "corps": "23.40",
+            "etiquette": "2.22",
+            "epaule": "8.74",
+            "weight": "Conforme"
+          },
+          {
+            "moldNumber": 14,
+            "base": "16.50",
+            "corps": "23.45",
+            "etiquette": "2.23",
+            "epaule": "8.76",
+            "weight": "OK"
+          }
+        ],
+        "createdAt": "2025-01-22T11:00:00.000Z",
+        "status": "completed"
+      }
+    },
+    {
+      "id": "report_1737739200000",
+      "testName": "Rapport de Contrôle Produit Fini",
+      "testType": "product-control",
+      "ligne": "LV1",
+      "produit": "Coca Simple",
+      "taille": "33cl",
+      "date": "2025-01-22",
+      "heure": null,
+      "status": "completed",
+      "createdAt": "2025-01-22T10:30:00.000Z",
+      "originalData": {
+        "id": "report_1737739200000",
+        "ligne": "LV1",
+        "produit": "Coca Simple",
+        "taille": "33cl",
+        "date": "2025-01-22",
+        "createdAt": "2025-01-22T10:30:00.000Z",
+        "controlRows": [
+          {
+            "id": "row_001",
+            "heure": "10:30",
+            "brix_sf": "12.5",
+            "brix_boisson": "10.8",
+            "date_p_sf": "2025-01-22",
+            "numero_cuve": "C001",
+            "boisson_acidite_abs": "3.2",
+            "pression": "4.1",
+            "temperature": "4",
+            "vol_co2": "3.8",
+            "lavage_goulot": "OK",
+            "gout_odeur": "Conforme",
+            "apparence": "Claire",
+            "codage": "OK",
+            "bouchage_test": "OK",
+            "sertissage": [
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK"
+            ],
+            "pression_bar": "4.1",
+            "chlore_ppm": "0.2",
+            "etiquetage": {
+              "emplacement": "Centré",
+              "couleur": "Rouge",
+              "texte": "Lisible",
+              "libelle_secondaire": "OK"
+            },
+            "initiales": "JD",
+            "codes_hd_hf": {
+              "hd": "H123",
+              "hf": "F456",
+              "cod_man": "M789"
+            },
+            "remarques": "Test normal"
+          }
+        ],
+        "status": "completed"
+      }
+    },
+    {
+      "id": "report_1737652800000",
+      "testName": "Rapport de Contrôle Produit Fini",
+      "testType": "product-control",
+      "ligne": "LV2",
+      "produit": "Fanta Citron",
+      "taille": "50cl",
+      "date": "2025-01-21",
+      "heure": null,
+      "status": "completed",
+      "createdAt": "2025-01-21T14:15:00.000Z",
+      "originalData": {
+        "id": "report_1737652800000",
+        "ligne": "LV2",
+        "produit": "Fanta Citron",
+        "taille": "50cl",
+        "date": "2025-01-21",
+        "createdAt": "2025-01-21T14:15:00.000Z",
+        "controlRows": [
+          {
+            "id": "row_002",
+            "heure": "14:15",
+            "brix_sf": "11.8",
+            "brix_boisson": "9.5",
+            "date_p_sf": "2025-01-21",
+            "numero_cuve": "C002",
+            "boisson_acidite_abs": "2.8",
+            "pression": "3.9",
+            "temperature": "5",
+            "vol_co2": "3.6",
+            "lavage_goulot": "OK",
+            "gout_odeur": "Conforme",
+            "apparence": "Claire",
+            "codage": "OK",
+            "bouchage_test": "OK",
+            "sertissage": [
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK"
+            ],
+            "pression_bar": "3.9",
+            "chlore_ppm": "0.1",
+            "etiquetage": {
+              "emplacement": "Centré",
+              "couleur": "Orange",
+              "texte": "Lisible",
+              "libelle_secondaire": "OK"
+            },
+            "initiales": "MS",
+            "codes_hd_hf": {
+              "hd": "H124",
+              "hf": "F457",
+              "cod_man": "M790"
+            },
+            "remarques": "RAS"
+          }
+        ],
+        "status": "completed"
+      }
+    },
+    {
+      "id": "report_1737566400000",
+      "testName": "Rapport de Contrôle Produit Fini",
+      "testType": "product-control",
+      "ligne": "PET",
+      "produit": "Sprite",
+      "taille": "1L",
+      "date": "2025-01-20",
+      "heure": null,
+      "status": "draft",
+      "createdAt": "2025-01-20T09:45:00.000Z",
+      "originalData": {
+        "id": "report_1737566400000",
+        "ligne": "PET",
+        "produit": "Sprite",
+        "taille": "1L",
+        "date": "2025-01-20",
+        "createdAt": "2025-01-20T09:45:00.000Z",
+        "controlRows": [
+          {
+            "id": "row_003",
+            "heure": "09:45",
+            "brix_sf": "10.2",
+            "brix_boisson": "8.8",
+            "date_p_sf": "2025-01-20",
+            "numero_cuve": "C003",
+            "boisson_acidite_abs": "2.5",
+            "pression": "4.2",
+            "temperature": "3",
+            "vol_co2": "4.0",
+            "lavage_goulot": "OK",
+            "gout_odeur": "Conforme",
+            "apparence": "Claire",
+            "codage": "OK",
+            "bouchage_test": "OK",
+            "sertissage": [
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK",
+              "OK"
+            ],
+            "pression_bar": "4.2",
+            "chlore_ppm": "0.15",
+            "etiquetage": {
+              "emplacement": "Centré",
+              "couleur": "Vert",
+              "texte": "Lisible",
+              "libelle_secondaire": "OK"
+            },
+            "initiales": "AL",
+            "codes_hd_hf": {
+              "hd": "H125",
+              "hf": "F458",
+              "cod_man": "M791"
+            },
+            "remarques": "Test de routine"
+          }
+        ],
+        "status": "draft"
+      }
+    }
+  ],
+  "summary": {
+    "totalTests": 4,
+    "testsByType": {
+      "poids-apparence": 1,
+      "product-control": 3
+    },
+    "testsByStatus": {
+      "completed": 3,
+      "draft": 1
+    },
+    "testsByLine": {
+      "LV1": 2,
+      "LV2": 1,
+      "PET": 1
+    },
+    "dateRange": {
+      "earliest": "2025-01-20",
+      "latest": "2025-01-22"
+    }
+  }
+}

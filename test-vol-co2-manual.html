@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test VOL.CO2 Calculation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-container { border: 1px solid #ccc; padding: 20px; margin: 20px 0; }
+        .result { margin: 10px 0; padding: 10px; background: #f0f0f0; }
+        .pass { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .fail { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        input { padding: 5px; margin: 5px; }
+        button { padding: 10px 20px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Test VOL.CO2 - Correspondance Exacte</h1>
+    
+    <div class="test-container">
+        <h2>Test Interactif</h2>
+        <label>Température (°C): <input type="number" id="temp" step="0.1" placeholder="Ex: 6"></label>
+        <label>Pression (PSI): <input type="number" id="pressure" step="0.1" placeholder="Ex: 7"></label>
+        <button onclick="calculateTest()">Calculer VOL.CO2</button>
+        <div id="result"></div>
+    </div>
+
+    <div class="test-container">
+        <h2>Tests Automatiques</h2>
+        <div id="automated-tests"></div>
+        <button onclick="runAutomatedTests()">Exécuter les Tests</button>
+    </div>
+
+    <script>
+        // Données du tableau de carbonatation (échantillon)
+        const CARBONATION_CHART = {
+            "5.5": {"6": 1.95, "7": 2.05, "8": 2.14, "9": 2.24, "10": 2.34, "11": 2.44, "12": 2.53, "13": 2.63, "14": 2.73, "15": 2.83},
+            "6": {"6": 1.92, "7": 2.01, "8": 2.11, "9": 2.21, "10": 2.3, "11": 2.4, "12": 2.49, "13": 2.59, "14": 2.69, "15": 2.78},
+            "6.5": {"6": 1.89, "7": 1.98, "8": 2.08, "9": 2.17, "10": 2.27, "11": 2.36, "12": 2.46, "13": 2.55, "14": 2.65, "15": 2.74},
+            "7": {"6": 1.86, "7": 1.95, "8": 2.04, "9": 2.14, "10": 2.23, "11": 2.32, "12": 2.42, "13": 2.51, "14": 2.6, "15": 2.7},
+            "10": {"6": 1.7, "7": 1.78, "8": 1.87, "9": 1.95, "10": 2.04, "11": 2.12, "12": 2.21, "13": 2.3, "14": 2.38, "15": 2.47},
+            "15": {"6": 1.47, "7": 1.55, "8": 1.62, "9": 1.7, "10": 1.77, "11": 1.85, "12": 1.92, "13": 2, "14": 2.07, "15": 2.15},
+            "20": {"6": 1.29, "7": 1.36, "8": 1.43, "9": 1.49, "10": 1.56, "11": 1.62, "12": 1.69, "13": 1.76, "14": 1.82, "15": 1.89}
+        };
+
+        const TEMPERATURE_KEYS = [5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20];
+        const PRESSURE_KEYS = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+        // Helper function to check if an exact value exists in the keys array
+        function hasExactMatch(value, keys) {
+            return keys.includes(value);
+        }
+
+        const calculateVolCO2 = (pressure, temperature) => {
+            // Only return a value if BOTH temperature AND pressure exist exactly in the chart
+            if (hasExactMatch(temperature, TEMPERATURE_KEYS) && hasExactMatch(pressure, PRESSURE_KEYS)) {
+                const volCO2 = CARBONATION_CHART[temperature.toString()]?.[pressure.toString()];
+                return volCO2 !== undefined ? volCO2 : null;
+            }
+
+            // If no exact match is found, return null (field will remain empty)
+            return null;
+        };
+
+        function calculateTest() {
+            const temp = parseFloat(document.getElementById('temp').value);
+            const pressure = parseFloat(document.getElementById('pressure').value);
+            
+            if (isNaN(temp) || isNaN(pressure)) {
+                document.getElementById('result').innerHTML = '<div class="fail">Veuillez entrer des valeurs numériques valides.</div>';
+                return;
+            }
+
+            const result = calculateVolCO2(pressure, temp);
+            const tempExists = hasExactMatch(temp, TEMPERATURE_KEYS);
+            const pressureExists = hasExactMatch(pressure, PRESSURE_KEYS);
+            
+            let message = `<strong>Résultat:</strong><br>`;
+            message += `Température ${temp}°C existe dans le tableau: ${tempExists ? 'OUI' : 'NON'}<br>`;
+            message += `Pression ${pressure} PSI existe dans le tableau: ${pressureExists ? 'OUI' : 'NON'}<br>`;
+            message += `VOL.CO2: ${result !== null ? result.toFixed(2) : 'VIDE (pas de correspondance exacte)'}`;
+            
+            const cssClass = result !== null ? 'pass' : 'fail';
+            document.getElementById('result').innerHTML = `<div class="${cssClass}">${message}</div>`;
+        }
+
+        function runAutomatedTests() {
+            const tests = [
+                { temp: 6, pressure: 7, expected: 2.01, description: "Correspondance exacte (6°C, 7 PSI)" },
+                { temp: 6.3, pressure: 7, expected: null, description: "Température non-exacte (6.3°C, 7 PSI)" },
+                { temp: 6, pressure: 7.5, expected: null, description: "Pression non-exacte (6°C, 7.5 PSI)" },
+                { temp: 6.3, pressure: 7.5, expected: null, description: "Les deux non-exactes (6.3°C, 7.5 PSI)" },
+                { temp: 10, pressure: 15, expected: 2.47, description: "Correspondance exacte (10°C, 15 PSI)" },
+                { temp: 7, pressure: 8, expected: 2.04, description: "Correspondance exacte (7°C, 8 PSI)" },
+                { temp: 20, pressure: 12, expected: 1.69, description: "Correspondance exacte (20°C, 12 PSI)" },
+                { temp: 5.5, pressure: 6, expected: 1.95, description: "Correspondance exacte min (5.5°C, 6 PSI)" },
+                { temp: 5, pressure: 6, expected: null, description: "Température hors plage (5°C, 6 PSI)" },
+                { temp: 6, pressure: 5, expected: null, description: "Pression hors plage (6°C, 5 PSI)" }
+            ];
+
+            let resultsHtml = '<h3>Résultats des Tests:</h3>';
+            let passedTests = 0;
+
+            tests.forEach((test, index) => {
+                const result = calculateVolCO2(test.pressure, test.temp);
+                const passed = result === test.expected;
+                if (passed) passedTests++;
+                
+                const status = passed ? 'PASS' : 'FAIL';
+                const cssClass = passed ? 'pass' : 'fail';
+                
+                resultsHtml += `<div class="${cssClass}">
+                    <strong>Test ${index + 1}:</strong> ${test.description}<br>
+                    <strong>Attendu:</strong> ${test.expected !== null ? test.expected.toFixed(2) : 'VIDE'}<br>
+                    <strong>Obtenu:</strong> ${result !== null ? result.toFixed(2) : 'VIDE'}<br>
+                    <strong>Statut:</strong> ${status}
+                </div>`;
+            });
+
+            resultsHtml += `<div class="result"><strong>Résumé: ${passedTests}/${tests.length} tests réussis</strong></div>`;
+            document.getElementById('automated-tests').innerHTML = resultsHtml;
+        }
+    </script>
+</body>
+</html>
